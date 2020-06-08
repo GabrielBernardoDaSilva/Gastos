@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabri\\source\\repos\\GerenciadoDespesas\\GerenciadoDespesas\\GerenciadoDespesas.csproj": {}
+    "C:\\Users\\GABRIEL-WORK\\Source\\Repos\\Gastos\\GerenciadoDespesas\\GerenciadoDespesas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabri\\source\\repos\\GerenciadoDespesas\\GerenciadoDespesas\\GerenciadoDespesas.csproj": {
+    "C:\\Users\\GABRIEL-WORK\\Source\\Repos\\Gastos\\GerenciadoDespesas\\GerenciadoDespesas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabri\\source\\repos\\GerenciadoDespesas\\GerenciadoDespesas\\GerenciadoDespesas.csproj",
+        "projectUniqueName": "C:\\Users\\GABRIEL-WORK\\Source\\Repos\\Gastos\\GerenciadoDespesas\\GerenciadoDespesas.csproj",
         "projectName": "GerenciadoDespesas",
-        "projectPath": "C:\\Users\\gabri\\source\\repos\\GerenciadoDespesas\\GerenciadoDespesas\\GerenciadoDespesas.csproj",
-        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabri\\source\\repos\\GerenciadoDespesas\\GerenciadoDespesas\\obj\\",
+        "projectPath": "C:\\Users\\GABRIEL-WORK\\Source\\Repos\\Gastos\\GerenciadoDespesas\\GerenciadoDespesas.csproj",
+        "packagesPath": "C:\\Users\\GABRIEL-WORK\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GABRIEL-WORK\\Source\\Repos\\Gastos\\GerenciadoDespesas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GABRIEL-WORK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

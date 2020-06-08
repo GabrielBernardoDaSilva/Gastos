@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GerenciadoDespesas.Models.Data;
 using GerenciadoDespesas.Models.Entities;
 using X.PagedList;
+using GerenciadoDespesas.ViewModels;
 
 namespace GerenciadoDespesas.Controllers
 {
@@ -25,6 +26,9 @@ namespace GerenciadoDespesas.Controllers
         {
             const int itensPagina = 10;
             int numeroPagina = pagina ?? 1;
+
+            ViewData["Meses"] = new SelectList(_context.Meses.Where(x => x.MesId == x.Salario.MesId), "MesId", "Nome");
+
             var context = _context.Despesas.Include(d => d.Meses).Include(d => d.TipoDespesas).OrderBy(x => x.Meses.MesId);
             return View(await context.ToPagedListAsync(numeroPagina,itensPagina));
         }
@@ -121,6 +125,19 @@ namespace GerenciadoDespesas.Controllers
             _context.Despesas.Remove(despesas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<JsonResult> GastosTotalMes(int mesId)
+        {
+            GastosTotaisMesViewModel gastosTotais = new GastosTotaisMesViewModel()
+            {
+                ValorTotalGasto = await _context.Despesas.Where(d => d.Meses.MesId == mesId).Select(d => d.Valor).SumAsync(),
+                Salario =await _context.Salarios.Where(s => s.Meses.MesId == mesId).Select(s => s.Valor).FirstOrDefaultAsync()
+
+            };
+            return Json(gastosTotais);
+            
         }
 
         private bool DespesasExists(int id)

@@ -12,6 +12,7 @@ namespace GerenciadoDespesas.Models.Entities
         public int MesId { get; set; }
         public Meses Meses { get; set; }
         
+        [DisplayFormat(DataFormatString = "{0:R$ 0.00}")]
         [Required(ErrorMessage ="Campo Obrigatorio")]
         [Range(0,double.MaxValue,ErrorMessage ="Valor invalido")]
         public double Valor { get; set; }

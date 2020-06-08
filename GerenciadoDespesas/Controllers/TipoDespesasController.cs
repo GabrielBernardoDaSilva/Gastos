@@ -42,6 +42,27 @@ namespace GerenciadoDespesas.Controllers
             return Json(true);
         }
 
+        public async Task<JsonResult> AdcionarTipoDespesa(string txtDespesa)
+        {
+            if (!string.IsNullOrEmpty(txtDespesa))
+            {
+                if (!await _context.TipoDespesas.AnyAsync(tp => tp.Nome.ToUpper() == txtDespesa.ToUpper()))
+                {
+                    TipoDespesas tipoDespesas = new TipoDespesas()
+                    {
+                        Nome = txtDespesa
+                    };
+                    await _context.TipoDespesas.AddAsync(tipoDespesas);
+                    await _context.SaveChangesAsync();
+                    return Json(true);
+                }
+                
+            }
+
+            return Json(false);
+            
+        }
+
         // GET: TipoDespesas/Details/5
 
         // GET: TipoDespesas/Create
