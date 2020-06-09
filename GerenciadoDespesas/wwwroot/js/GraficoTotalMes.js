@@ -10,7 +10,7 @@
             $("div.GraficoGastoTotalMes").append('<canvas id="GraficoGastoTotalMes" style="height:400px;width:400px;"></canvas>');
 
             var ctx = document.getElementById('GraficoGastoTotalMes').getContext('2d');
-
+           
             var grafico = new Chart(ctx, {
                 type: 'doughnut',
 

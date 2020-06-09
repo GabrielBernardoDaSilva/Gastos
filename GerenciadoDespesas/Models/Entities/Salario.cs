@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace GerenciadoDespesas.Models.Entities
 {
+
+    
     public class Salario
     {
         public int SalarioId { get; set; }
@@ -16,6 +18,8 @@ namespace GerenciadoDespesas.Models.Entities
         [Required(ErrorMessage ="Campo Obrigatorio")]
         [Range(0,double.MaxValue,ErrorMessage ="Valor invalido")]
         public double Valor { get; set; }
+
+        
 
     }
 }

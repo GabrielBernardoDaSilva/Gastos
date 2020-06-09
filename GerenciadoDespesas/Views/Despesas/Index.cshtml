@@ -30,6 +30,21 @@
             <div class="col">
                 <partial name="_GastoTotalMes" />
             </div>
+            <div class="col">
+                <partial name="_GastoMes" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <partial name="_GastosTotais" />
+            </div>
+        </div>
+
+        <div class="estatiscas">
+            <div class="alert alert-primary">
+                @await Component.InvokeAsync("Estatisticas")
+            </div>
         </div>
 
         <div class="tabelaPrincipal">
@@ -104,10 +119,12 @@
 </div>
 
 @section Scripts{
-    <script src="~/js/GraficoTotalMes.js"></script>
+    <script src="~/bundle.min.js"></script>
     <script>
 
+        CarregarDadosGastosTotais();
         CarregarDadosGastosTotaisMes();
+        CarregarDadosGastosMes();
 
         function ExibirModal(id) {
 

@@ -9,6 +9,7 @@ using GerenciadoDespesas.Models.Data;
 using GerenciadoDespesas.Models.Entities;
 using X.PagedList;
 using GerenciadoDespesas.ViewModels;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GerenciadoDespesas.Controllers
 {
@@ -140,6 +141,29 @@ namespace GerenciadoDespesas.Controllers
             
         }
 
+        public JsonResult GastoMes(int mesId)
+        {
+            var query = from despesas in _context.Despesas
+                        where despesas.Meses.MesId == mesId
+                        group despesas by despesas.TipoDespesas.Nome into g
+                        select new
+                        {
+                            TiposDespesas = g.Key,
+                            Valores = g.Sum(d => d.Valor)
+                        };
+
+            return Json(query);
+        }
+
+        public JsonResult GastosTotais()
+        {
+            var query = _context.Despesas
+                .OrderBy(m => m.Meses.MesId)
+                .GroupBy(m => m.Meses.MesId)
+                .Select(d => new { NomeMeses = d.Select(x => x.Meses.Nome).Distinct(), Valores = d.Sum(x => x.Valor) });
+
+            return Json(query);
+        }
         private bool DespesasExists(int id)
         {
             return _context.Despesas.Any(e => e.DepesasId == id);
